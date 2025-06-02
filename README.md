@@ -1,149 +1,122 @@
-[![Build Status](https://travis-ci.org/boo-lang/boo.svg?branch=master)](https://travis-ci.org/boo-lang/boo)
+# Boo\* (BooStar) 🌟
 
-The Boo Programming Language (c) 2009 Rodrigo B. de Oliveira (rbo@acm.org)
+Boo\* is a **universal-purpose**, **lightweight**, and **minimalist** programming language inspired by Boo — redesigned for clarity, speed, and clean syntax.
 
-Prerequisites
-=============
+## 🚀 Core Features
 
-## Windows
+- `func` to define functions
+- `ret` to return values
+- `prnt@"Hello"@` for printing
+- `x=5` for assignment, `x = 5` for comparison
+- `~` to start indented blocks (no `{}`)
+- `nil`, `tru`, `f-` for null, true, and false
+- Minimal parentheses and punctuation
 
-- .NET 4.5
-- [Visual C++ Build Tools*](http://landinghub.visualstudio.com/visual-cpp-build-tools)
+## 🧠 Sample Code
 
-\* Boo is built with NAnt, which must be built from sources, which requires NMake, which comes with the Visual C++ Build Tools.
+```boo
+func greet(name: str) -> str ~
+    ret@"Hello, " + name + "!"@
 
-## Mac/Linux
+x=5
+if x = 5 ~
+    prnt@"Hi five!"@
+else ~
+    prnt@"Nope."@
 
-- Mono 4.2.x (4.2.4 is the latest and recommended)
-- Bash
+🔧 Goal
+Boo* aims to be:
 
-Build Tools
-==============
+Beginner-friendly
 
-You can install compatible versions of the required tools into the ```build-tools``` directory, where the build scripts will execute them from, by running the bootstrap script.
+Extremely clean
 
-## Windows
-The bootstrap script is a PowerShell script; however, it must be run from a x86 Native Tools Command Prompt:
-```
-# FROM A x86 NATIVE TOOLS COMMAND PROMPT
-powershell .\build-tools\bootstrap
-```
+Fast to type
 
-## Mac/Linux
+Fun to write 
 
-```
-./build-tools/bootstrap
-```
-
-### Mac
-
-Building Boo requires Mono 4.2.x, which is not likely to be your "Current" version of Mono. To avoid having to switch your current version every time you want to work on Boo, you can specify the version to use when you run the bootstrap script. The build scripts will then use that version of Mono, regardless of your current version.
-
-```
-./build-tools/bootstrap [<mono version>]
-```
-
-Building
-========
-
-To build the repository, run the ```nant``` script:
-
-```PowerShell
-# Windows (PowerShell)
-.\nant [<target>]
-```
-
-```sh
-# Mac/Linux
-./nant [<target>]
-```
-
-With no target specified, this will build the repository (code and tests) incrementally. To clean and build the repository from scratch, run the "rebuild" target. This will also cause the ast classes and parser
-to be regenerated (needs a java vm)
-
-To run the unit tests that have already been built with ```nant```, run the ```nunit``` script:
-
-```PowerShell
-# Windows (PowerShell)
-.\nunit
-```
-
-```sh
-# Mac/Linux
-./nunit
-```
-
-To build and test the entire repository, the same way the CI build does, run the ```ci``` script:
-
-```PowerShell
-# Windows (PowerShell)
-.\ci
-```
-
-```sh
-# Mac/Linux
-./ci
-```
-
-How to Start
-============
-
-For a brief description of the project and its goals
-take a look at `docs/BooManifesto.sxw`.
-
-`extras/boox` contains a sweet little tool you can use
-to get yourself acquainted with the language.
-
-`src/` contains all the source code for the runtime and
-compiler components.
-
-`tests/` contains all the unit tests.
-
-`testcases/integration` is a good source of information
-on the language features.
-
-`lib/` contains project dependencies such as antlr.
-
-`bin/` contains the latest version that passed all the tests
-and could be successfully used to rebuild the system.
-
-Running and compiling code
-==========================
-
-To execute a boo script run:
-
-	booi <script> [args]
-	
-For instance:
-
-	booi examples/hw.boo	
-	
-You can also have booi to read from stdin by typing:
-
-	booi -
-	
-You can generate .net assemblies by using `booc` (either
-the `booc.exe` utility or the `booc nant` task):
-
-	booc -output:build/hello.exe examples/hw.boo	
-	
-If you want to simply see the transformations applied to
-your code by the compiler use the boo pipeline, run:
-
-	booc -p:boo examples/replace.boo	
-	
-More Information
-================
-
-Boo development Google group:
-https://groups.google.com/forum/#!forum/boolang
-
-Boo community Discord:
-[https://discord.gg/J4Guxadwma](https://discord.gg/J4Guxadwma)
-
-Contributors
-============
-
-See: https://github.com/boo-lang/boo/graphs/contributors
+📌 Status
+Language design ongoing. Parser and interpreter to be built soon.
 
 
+
+---
+
+### ✅ Step 2: Create a **`docs/spec.md`** File
+Make a folder called `docs/` and add this file to outline Boo\*'s syntax rules.
+
+**📄 `docs/spec.md`**
+```markdown
+# Boo\* Language Specification (v0.1)
+
+## 📚 Keywords
+
+| Purpose        | Keyword |
+|----------------|---------|
+| Define function | `func` |
+| Return value    | `ret`  |
+| Import module   | `imprt` |
+| True / False    | `tru` / `f-` |
+| Null / None     | `nil`  |
+| Print           | `prnt` |
+| Code Block Start | `~`   |
+
+## 📦 Syntax Rules
+
+### 🟢 Assign vs Compare
+- Assignment: `x=5`
+- Comparison: `x = 5`
+
+### 🟢 Strings and Expressions
+Use `@...@` to wrap string or expression content.
+- `prnt@"Hello"@`
+- `ret@x + 1@`
+
+### 🟢 Code Blocks
+Use `~` at the start of an indented block.
+
+```boo
+if x = 5 ~
+    prnt@"Yes!"@
+🧪 Example
+boo
+Copy
+Edit
+imprt math
+
+func square(n: int) -> int ~
+    ret@n * n@
+
+x=5
+if x = 5 ~
+    prnt@"Five it is!"@
+🛠️ Planned:
+Parser in C# or Python
+
+Test suite
+
+REPL or CLI runner
+
+yaml
+Copy
+Edit
+
+---
+
+### ✅ Step 3: Push It to GitHub
+
+If you're working locally:
+
+```bash
+git clone https://github.com/MistyPigeon/BooStar.git
+cd BooStar
+
+# Create README and spec file
+mkdir docs
+nano README.md
+nano docs/spec.md
+
+# Add, commit, and push
+git add .
+git commit -m "Added Boo* language spec and README"
+git push
