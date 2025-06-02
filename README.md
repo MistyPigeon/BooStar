@@ -1,6 +1,6 @@
 # Boo\* (BooStar) 🌟
 
-Boo\* is a **universal-purpose**, **lightweight**, and **minimalist** programming language inspired by Boo — redesigned for clarity, speed, and clean syntax.
+Boo\* is a not-ready **universal-purpose**, **lightweight**, and **minimalist** programming language inspired by Boo — redesigned for clarity, speed, and clean syntax.
 
 ## 🚀 Core Features
 
